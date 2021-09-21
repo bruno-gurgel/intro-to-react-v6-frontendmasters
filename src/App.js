@@ -1,6 +1,4 @@
-import React from "react";
 import ReactDOM from "react-dom";
-
 import Pet from "./Pet";
 
 const App = () => {
@@ -13,4 +11,4 @@ const App = () => {
     </div>
   );
 };
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
