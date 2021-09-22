@@ -1,0 +1,62 @@
+import { useState } from "react";
+
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const BREEDS = [];
+
+const SearchParams = () => {
+  const [location, setLocation] = useState("Seattle, WA");
+  const [animal, updateAnimal] = useState("");
+  const [breed, updateBreed] = useState("");
+
+  return (
+    <div className="search-params">
+      <form>
+        <label htmlFor="location">
+          location
+          <input
+            id="location"
+            value={location}
+            placeholder="Location"
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </label>
+        <label htmlFor="animal">
+          Animal
+          <select
+            id="animal"
+            value={animal}
+            onChange={(e) => updateAnimal(e.target.value)}
+            onBlur={(e) => updateAnimal(e.target.value)}
+          >
+            <option />
+            {ANIMALS.map((animal) => (
+              <option key={animal} value={animal}>
+                {animal}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            disabled={!BREEDS.length}
+            id="breed"
+            value={breed}
+            onChange={(e) => updateBreed(e.target.value)}
+            onBlur={(e) => updateBreed(e.target.value)}
+          >
+            <option />
+            {BREEDS.map((breed) => (
+              <option key={breed} value={breed}>
+                {breed}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default SearchParams;
